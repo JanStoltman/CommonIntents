@@ -48,7 +48,7 @@ To request the required permissons that are used by certain intent use *resolveA
 If you would like to contrubiute, feel free to create a pull request with your changes. Try to describe what you did in each commit. For other common intents create new packages and for intents that are app-specific (Twitter, Evernote...) please create new utility class in a sub-package named after that application.
 
 ## Tests
-Whole library is going to be tested using [Espresso-Intents](https://developer.android.com/training/testing/espresso/intents]
+Whole library is going to be tested using [Espresso-Intents](https://developer.android.com/training/testing/espresso/intents)
 
 ## Tasks
 Todo list for this library in the nearest future
