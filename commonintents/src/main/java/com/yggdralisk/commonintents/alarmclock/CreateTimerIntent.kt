@@ -17,18 +17,19 @@ import com.yggdralisk.commonintents.utils.PermissionsUtils
 @RequiresApi(Build.VERSION_CODES.KITKAT)
 class CreateTimerIntent {
     companion object {
+        private const val INTENT_ACTION = AlarmClock.ACTION_SET_ALARM
+
         fun create(message: String = "", length: Int, skipUI: Boolean = false): Intent =
-                Intent(AlarmClock.ACTION_SET_ALARM)
+                Intent(INTENT_ACTION)
                         .putExtra(AlarmClock.EXTRA_MESSAGE, message)
                         .putExtra(AlarmClock.EXTRA_LENGTH, length)
                         .putExtra(AlarmClock.EXTRA_SKIP_UI, skipUI)
 
-
-        fun resolveActivity(pm: PackageManager): Boolean = ActivityUtils.resolveActivity(pm, Intent(AlarmClock.ACTION_SET_ALARM))
+        fun resolveActivity(pm: PackageManager): Boolean = ActivityUtils.resolveActivity(pm, Intent(INTENT_ACTION))
 
         fun checkPermissions(context: Context): Boolean = PermissionsUtils.checkPermissions(context, Manifest.permission.SET_ALARM)
 
         fun requestPermissions(activity: Activity, requestCode: Int) = PermissionsUtils.requestPermissions(activity,
-                arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION), requestCode)
+                arrayOf(android.Manifest.permission.SET_ALARM), requestCode)
     }
 }

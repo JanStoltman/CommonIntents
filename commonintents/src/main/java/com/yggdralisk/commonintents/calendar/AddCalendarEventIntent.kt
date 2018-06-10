@@ -2,6 +2,7 @@ package com.yggdralisk.commonintents.calendar
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.provider.AlarmClock
 import android.provider.CalendarContract
 import android.provider.CalendarContract.Events
 import com.yggdralisk.commonintents.utils.ActivityUtils
@@ -11,11 +12,12 @@ import com.yggdralisk.commonintents.utils.ActivityUtils
  */
 class AddCalendarEventIntent {
     companion object {
-        const val CALENDAR_EVENT_MIME_TYPE = "vnd.android.cursor.dir/event"
+        private const val INTENT_ACTION = Intent.ACTION_INSERT
+        private const val CALENDAR_EVENT_MIME_TYPE = "vnd.android.cursor.dir/event"
 
         fun create(title: String, beginTime: Long, endTime: Long, allDay: Boolean = false,
                    description: String? = null, location: String? = null, emails: Array<String>? = null): Intent {
-            val intent = Intent(Intent.ACTION_INSERT)
+            val intent = Intent(INTENT_ACTION)
                     .setData(Events.CONTENT_URI)
                     .setType(CALENDAR_EVENT_MIME_TYPE)
                     .putExtra(Events.ALL_DAY, allDay)
@@ -31,6 +33,6 @@ class AddCalendarEventIntent {
         }
 
         fun resolveActivity(pm: PackageManager) = ActivityUtils.resolveActivity(pm,
-                Intent(Intent.ACTION_INSERT).setData(Events.CONTENT_URI).setType(CALENDAR_EVENT_MIME_TYPE))
+                Intent(INTENT_ACTION).setData(Events.CONTENT_URI).setType(CALENDAR_EVENT_MIME_TYPE))
     }
 }

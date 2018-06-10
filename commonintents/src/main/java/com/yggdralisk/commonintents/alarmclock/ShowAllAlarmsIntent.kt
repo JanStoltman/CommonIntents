@@ -13,9 +13,11 @@ import com.yggdralisk.commonintents.utils.ActivityUtils
 @RequiresApi(Build.VERSION_CODES.KITKAT)
 class ShowAllAlarmsIntent {
     companion object {
-        fun create(message: String = "", length: Int, skipUI: Boolean = false): Intent =
-                Intent(AlarmClock.ACTION_SHOW_ALARMS)
+        private const val INTENT_ACTION = AlarmClock.ACTION_SHOW_ALARMS
 
-        fun resolveActivity(pm: PackageManager) = ActivityUtils.resolveActivity(pm, Intent(AlarmClock.ACTION_SHOW_ALARMS))
+        fun create(message: String = "", length: Int, skipUI: Boolean = false): Intent =
+                Intent(INTENT_ACTION)
+
+        fun resolveActivity(pm: PackageManager) = ActivityUtils.resolveActivity(pm, Intent(INTENT_ACTION))
     }
 }
