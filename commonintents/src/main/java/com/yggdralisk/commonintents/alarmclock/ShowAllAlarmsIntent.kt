@@ -15,8 +15,7 @@ class ShowAllAlarmsIntent {
     companion object {
         private const val INTENT_ACTION = AlarmClock.ACTION_SHOW_ALARMS
 
-        fun create(message: String = "", length: Int, skipUI: Boolean = false): Intent =
-                Intent(INTENT_ACTION)
+        fun create(message: String = "", length: Int, skipUI: Boolean = false): Intent = Intent(INTENT_ACTION)
 
         fun resolveActivity(pm: PackageManager) = ActivityUtils.resolveActivity(pm, Intent(INTENT_ACTION))
     }

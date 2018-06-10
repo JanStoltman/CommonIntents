@@ -24,7 +24,7 @@ class CaptureImageIntent {
             return intent
         }
 
-        fun resolveActivity(pm: PackageManager): Boolean = ActivityUtils.resolveActivity(pm, Intent())
+        fun resolveActivity(pm: PackageManager): Boolean = ActivityUtils.resolveActivity(pm, Intent(INTENT_ACTION))
 
         fun checkPermissions(context: Context): Boolean = PermissionsUtils.checkPermissions(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
