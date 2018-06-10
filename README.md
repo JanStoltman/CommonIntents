@@ -49,4 +49,4 @@ If you would like to contrubiute, feel free to create a pull request with your c
 
 ## Tasks
 Todo list for this library in the nearest future
-- []
+- [] Add intent for "Play music based on a search query"
