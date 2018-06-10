@@ -1,4 +1,4 @@
-package com.yggdralisk.commonintents.AlarmClockIntents
+package com.yggdralisk.commonintents.alarmclock
 
 import android.Manifest
 import android.app.Activity
@@ -8,8 +8,8 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.provider.AlarmClock
 import android.support.annotation.RequiresApi
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
+import com.yggdralisk.commonintents.utils.ActivityUtils
+import com.yggdralisk.commonintents.utils.PermissionsUtils
 import java.net.URI
 
 
@@ -41,14 +41,12 @@ class SetAlarmIntent {
             return intent
         }
 
-        fun resolveActivity(pm: PackageManager) =
-                Intent(AlarmClock.ACTION_SET_ALARM).resolveActivity(pm)
+        fun resolveActivity(pm: PackageManager): Boolean = ActivityUtils.resolveActivity(pm, Intent(AlarmClock.ACTION_SET_ALARM))
 
-        fun checkPermission(context: Context): Boolean =
-                ContextCompat.checkSelfPermission(context, Manifest.permission.SET_ALARM) != PackageManager.PERMISSION_DENIED
+        fun checkPermissions(context: Context): Boolean = PermissionsUtils.checkPermissions(context, Manifest.permission.SET_ALARM)
 
-        fun askForPermission(activity: Activity, requestCode: Int) =
-                ActivityCompat.requestPermissions(activity, arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION),
-                        requestCode);
+        fun requestPermissions(activity: Activity, requestCode: Int) = PermissionsUtils.requestPermissions(activity,
+                arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION),
+                requestCode)
     }
 }
