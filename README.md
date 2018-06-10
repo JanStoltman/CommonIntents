@@ -21,7 +21,7 @@ Common Intents is an Android library which provides the most common android inte
     
     #Module level gradle file
     dependencies {
-        compile 'com.marvinlabs:android-intents:1.5.1@aar'
+        implementation 'com.github.JanStoltman:CommonIntents:v0.8'
     }
     
 ### Intent creation
