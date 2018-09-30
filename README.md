@@ -2,7 +2,7 @@
 
 # CommonIntents
 ## Description
-Common Intents is an Android library which provides the most common android intents in ready-to-take one-liney fashion. It's main goal it to save your time and prevent you from writing the same intent creation code again and again for the most common tasks. All intents are taken from and implemented according to [Android documentation](https://developer.android.com/guide/components/intents-common). 
+Common Intents is an Android library which provides the most common android intents in ready-to-take one-liney fashion. Its main goal is to save your time and prevent you from writing the same intent creation code repeatedly for the most common tasks. All intents are taken from and implemented according to [Android documentation](https://developer.android.com/guide/components/intents-common). 
 
 **MinSdk - 14**
 **TargetSdk - 28**
